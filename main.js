@@ -11,4 +11,4 @@ console.log("js in connected");
 //FUNCTIONS
 // functio for button clicked using this to refer to button tht clicked
 //find its ID using jquery
-// store array
+//  store array
