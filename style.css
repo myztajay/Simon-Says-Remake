@@ -10,8 +10,7 @@ h1{
   color: white;
   font-size: 110px;
 }
-#play{
-  text-align: center;
+#btnPlay{
 }
 
 .simonBoard{
@@ -25,7 +24,7 @@ h1{
   border-radius: 100%;
   overflow: hidden;
 }
-.btnRed{
+#btnRed{
   width: 200px;
   height: 200px;
   flex-grow: 1;
@@ -33,21 +32,21 @@ h1{
   background-color: red;
   /*border: solid 1px black;*/
 }
-.btnYellow{
+#btnYellow{
   width: 200px;
   height: 200px;
   flex-grow: 1;
   background-color: yellow;
   /*border: solid 1px black;*/
 }
-.btnGreen{
+#btnGreen{
   width: 200px;
   height: 200px;
   flex-grow: 1;
   background-color: green;
   /*border: solid 1px black;*/
 }
-.btnBlue{
+#btnBlue{
   width: 200px;
   height: 200px;
   flex-grow: 1;
