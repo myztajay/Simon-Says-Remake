@@ -30,6 +30,8 @@ h1{
   flex-grow: 1;
   margin-right: 0;
   background-color: red;
+  line-height: 200px;
+  text-align: center;
   /*border: solid 1px black;*/
 }
 #btnYellow{
@@ -37,6 +39,8 @@ h1{
   height: 200px;
   flex-grow: 1;
   background-color: yellow;
+  line-height: 200px;
+  text-align: center;
   /*border: solid 1px black;*/
 }
 #btnGreen{
@@ -44,6 +48,8 @@ h1{
   height: 200px;
   flex-grow: 1;
   background-color: green;
+  line-height: 200px;
+  text-align: center;
   /*border: solid 1px black;*/
 }
 #btnBlue{
@@ -51,5 +57,7 @@ h1{
   height: 200px;
   flex-grow: 1;
   background-color: blue;
+  line-height: 200px;
+  text-align: center;
   /*border: solid 1px black;*/
 }

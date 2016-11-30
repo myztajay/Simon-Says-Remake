@@ -29,13 +29,28 @@ let simonSeq = [];
 
 
 // generate random number from 1-4
+
+//initiates game
 function playSimon() {
     for (let i = 0; i < 3; i++) {
-        randomSeq = Math.floor((Math.random() * 3) + 1);
+        randomSeq = Math.floor((Math.random() * 4) + 1);
         simonSeq.push(randomSeq);
         console.log(simonSeq);
-        console.log(i);
     }
-  
+
+    for (let j in simonSeq) {
+        if (simonSeq[j] == 1) {
+            $red.html("red");
+        }
+        if (simonSeq[j]  == 2){
+            $blue.html("blue");
+        }
+        if (simonSeq[j] == 3) {
+            $green.html("green");
+        }
+        if (simonSeq[j] == 4) {
+            $yellow.html("yellow");
+        }
+    }
 
 }
