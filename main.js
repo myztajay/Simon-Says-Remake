@@ -7,6 +7,7 @@ let $yellow = $(btnYellow);
 let $play = $(btnPlay);
 let playerTurn = true;
 let tempVar
+let arrayCounter = 0
 
 //ARRAYS
 let userSeq = [];
@@ -17,36 +18,78 @@ $red.on('click',storeUserSequence);
 $blue.on('click',storeUserSequence);
 $green.on('click', storeUserSequence);
 $yellow.on('click', storeUserSequence);
-$play.on('click', false);
+$play.on('click', genSimonSeq);
 
 //FUNCTIONS
 // functio for button clicked using this to refer to button tht clicked
 //find its ID using jquery
 //  store array
-function storeUserSequence(){
-  console.log(this.id + "button was pressed");
-  if (this.id == "btnRed"){
-    $red.html("red_User");
-    tempVar = 1;
-    userSeq.push(tempVar);
-  }
-  if (this.id == "btnBlue"){
-    $blue.html("blue_User");
-    tempVar = 2;
-    userSeq.push(tempVar);
-  }
-  if (this.id == "btnGreen"){
-    $green.html("green_User");
-    tempVar = 3;
-    userSeq.push(tempVar);
-  }
-  else if (this.id == "btnYellow"){
-    $yellow.html("yellow_User");
-    tempVar = 4;
-    userSeq.push(tempVar);
-  }
+
+function resetGame(){
+  userSeq = [];
+  simonSeq = [];
+  
 }
 
+
+function storeUserSequence() {
+    console.log(this.id + "button was pressed");
+    if (arrayCounter < (simonSeq.length - 1)) {
+
+        if (this.id == "btnRed") {
+            $red.html("red_User");
+            tempVar = 1;
+            userSeq.push(tempVar);
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                /////////////////////KILLL THE GAME ////////////////////////////////////////
+                console.log("Loo-hoo-looha");
+                resetGame();
+            }
+        }
+        if (this.id == "btnBlue") {
+            $blue.html("blue_User");
+            tempVar = 2;
+            userSeq.push(tempVar);
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                console.log("Loo-hoo-looha");
+                resetGame();
+                /////////////////////KILLL THE GAME ////////////////////////////////////////
+            }
+        }
+        if (this.id == "btnGreen") {
+            $green.html("green_User");
+            tempVar = 3;
+            userSeq.push(tempVar);
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                console.log("Loo-hoo-looha");
+                resetGame();
+                /////////////////////KILLL THE GAME ////////////////////////////////////////
+
+            }
+        } else if (this.id == "btnYellow") {
+            $yellow.html("yellow_User");
+            tempVar = 4;
+            userSeq.push(tempVar);
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                console.log("Loo-hoo-looha");
+                resetGame();
+                /////////////////////KILLL THE GAME ////////////////////////////////////////
+
+            }
+        }
+    } else {
+        console.log("YOU WIN BITCH!");
+        resetGame();
+    }
+}
 //initiates game
 function genSimonSeq(){
     // check to see if playerTurn is true or false
@@ -82,7 +125,7 @@ function genSimonSeq(){
         }
     } else {
       // Now we do what playas do
-        console.log("player turn now")
+        console.log("player turn now");
 
     }
     playerTurn = true;
