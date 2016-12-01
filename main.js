@@ -8,7 +8,6 @@ let $play = $(btnPlay);
 let playerTurn = true;
 let tempVar
 let arrayCounter = 0
-
 //ARRAYS
 let userSeq = [];
 let simonSeq = [];
@@ -28,9 +27,7 @@ $play.on('click', genSimonSeq);
 function resetGame(){
   userSeq = [];
   simonSeq = [];
-  
 }
-
 
 function storeUserSequence() {
     console.log(this.id + "button was pressed");
@@ -43,7 +40,7 @@ function storeUserSequence() {
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
             } else {
-                /////////////////////KILLL THE GAME ////////////////////////////////////////
+                // end the game if answer is wrong
                 console.log("Loo-hoo-looha");
                 resetGame();
             }
@@ -55,9 +52,9 @@ function storeUserSequence() {
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
             } else {
+                // end the game if answer is wrong
                 console.log("Loo-hoo-looha");
                 resetGame();
-                /////////////////////KILLL THE GAME ////////////////////////////////////////
             }
         }
         if (this.id == "btnGreen") {
@@ -67,10 +64,9 @@ function storeUserSequence() {
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
             } else {
+                // end the game if answer is wrong
                 console.log("Loo-hoo-looha");
                 resetGame();
-                /////////////////////KILLL THE GAME ////////////////////////////////////////
-
             }
         } else if (this.id == "btnYellow") {
             $yellow.html("yellow_User");
@@ -79,10 +75,9 @@ function storeUserSequence() {
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
             } else {
+                // end the game if answer is wrong
                 console.log("Loo-hoo-looha");
                 resetGame();
-                /////////////////////KILLL THE GAME ////////////////////////////////////////
-
             }
         }
     } else {
@@ -100,7 +95,6 @@ function genSimonSeq(){
             console.log(simonSeq);
         }
         for (let j in simonSeq) {
-
             if (simonSeq[j] == 1) {
                 //clear interval
                 $red.html("red");

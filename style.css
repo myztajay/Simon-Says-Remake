@@ -1,63 +1,85 @@
-body{
-  background-color: black;
-}
-.container{
-    width:800px;
-    margin: 0 auto;
-}
-h1{
-  text-align: center;
-  color: white;
-  font-size: 110px;
-}
-#btnPlay{
+body {
+    background-color: black;
 }
 
-.simonBoard{
-  margin: 0 auto;
-  width: 400px;
-  flex-wrap: wrap;
-  display: flex;
-  margin-top: 50px;
-  background-color: black;
-  border: 40px solid black;
-  border-radius: 100%;
-  overflow: hidden;
+.container {
+    width: 800px;
+    margin: 0 auto;
 }
-#btnRed{
-  width: 200px;
-  height: 200px;
-  flex-grow: 1;
-  margin-right: 0;
-  background-color: red;
-  line-height: 200px;
-  text-align: center;
-  /*border: solid 1px black;*/
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 110px;
 }
-#btnYellow{
-  width: 200px;
-  height: 200px;
-  flex-grow: 1;
-  background-color: yellow;
-  line-height: 200px;
-  text-align: center;
-  /*border: solid 1px black;*/
+
+#btnPlay {}
+
+.simonBoard {
+    margin: 0 auto;
+    width: 400px;
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 50px;
+    background-color: black;
+    border: 40px solid black;
+    border-radius: 100%;
+    overflow: hidden;
 }
-#btnGreen{
-  width: 200px;
-  height: 200px;
-  flex-grow: 1;
-  background-color: green;
-  line-height: 200px;
-  text-align: center;
-  /*border: solid 1px black;*/
+
+#btnRed {
+    width: 200px;
+    height: 200px;
+    flex-grow: 1;
+    margin-right: 0;
+    background-color: red;
+    line-height: 200px;
+    text-align: center;
+    /*border: solid 1px black;*/
 }
-#btnBlue{
-  width: 200px;
-  height: 200px;
-  flex-grow: 1;
-  background-color: blue;
-  line-height: 200px;
-  text-align: center;
-  /*border: solid 1px black;*/
+
+#btnYellow {
+    width: 200px;
+    height: 200px;
+    flex-grow: 1;
+    background-color: yellow;
+    line-height: 200px;
+    text-align: center;
+    /*border: solid 1px black;*/
+}
+
+#btnGreen {
+    width: 200px;
+    height: 200px;
+    flex-grow: 1;
+    background-color: green;
+    line-height: 200px;
+    text-align: center;
+    /*border: solid 1px black;*/
+}
+
+#btnBlue {
+    width: 200px;
+    height: 200px;
+    flex-grow: 1;
+    background-color: blue;
+    line-height: 200px;
+    text-align: center;
+    /*border: solid 1px black;*/
+}
+
+.flashClass {
+    -webkit-animation-name: example;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: flash;
+    animation-duration: 4s;
+}
+
+@keyframes flash {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
 }
