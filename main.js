@@ -6,8 +6,11 @@ let $green = $(btnGreen);
 let $yellow = $(btnYellow);
 let $play = $(btnPlay);
 let playerTurn = true;
-let tempVar
-let arrayCounter = 0
+let tempVar;
+let arrayCounter = 0;
+let simonCounter = 0
+let timeoutId;
+
 //ARRAYS
 let userSeq = [];
 let simonSeq = [];
@@ -79,48 +82,71 @@ function storeUserSequence() {
                 console.log("Loo-hoo-looha");
                 resetGame();
             }
-        }
+          }
     } else {
         console.log("YOU WIN BITCH!");
         resetGame();
     }
 }
+
+var animate = setInterval(flash, 1500)
+
+function flash() {
+    if (simonCounter < simonSeq.length) {
+        console.log("animate test");
+        x = simonSeq[simonCounter];
+        if (x == 1) {
+            highlight($red);
+        }
+        if (x == 2) {
+            highlight($blue);
+        }
+        if (x == 3) {
+            highlight($green);
+
+        }
+        if (x == 4) {
+            highlight($yellow);
+        }
+        simonCounter++;
+
+        function highlight(colorVar) {
+            colorVar.addClass('flashClass');
+            setTimeout(removeClass, 500)
+            function removeClass() {
+                colorVar.removeClass("flashClass");
+            }
+        }
+
+    }
+}
+
+
+
+ //end of animate
+
+
 //initiates game
 function genSimonSeq(){
     // check to see if playerTurn is true or false
-    if (playerTurn) {
         for (let i = 0; i < 3; i++) {
             randomSeq = Math.floor((Math.random() * 4) + 1);
             simonSeq.push(randomSeq);
             console.log(simonSeq);
         }
-        for (let j in simonSeq) {
-            if (simonSeq[j] == 1) {
-                //clear interval
-                $red.html("red");
-                //fill in with ccs3 feature highlight
-                //set invterval to freeze it
-            }
-            if (simonSeq[j] == 2) {
-                $blue.html("blue");
-                //fill in with ccs3 feature highlight
-                //set invterval to freeze it
-            }
-            if (simonSeq[j] == 3) {
-                $green.html("green");
-                //fill in with ccs3 feature highlight
-                //set invterval to freeze it
-            }
-            if (simonSeq[j] == 4) {
-                $yellow.html("yellow");
-                //fill in with ccs3 feature highlight
-                //set invterval to freeze it
-            }
-        }
-    } else {
-      // Now we do what playas do
-        console.log("player turn now");
-
-    }
-    playerTurn = true;
+        // for (let j in simonSeq) {
+        //     if (simonSeq[j] == 1) {
+        //       animate($red);
+        //     }
+        //     if (simonSeq[j] == 2) {
+        //       animate($blue);
+        //     }
+        //     if (simonSeq[j] == 3) {
+        //       animate($green);
+        //     }
+        //     if (simonSeq[j] == 4) {
+        //       animate($yellow);
+        //     }
+        // }
+        animate;
 }

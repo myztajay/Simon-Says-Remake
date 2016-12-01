@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #dcdee2;
 }
 
 .container {
@@ -21,51 +21,53 @@ h1 {
     flex-wrap: wrap;
     display: flex;
     margin-top: 50px;
-    background-color: black;
-    border: 40px solid black;
-    border-radius: 100%;
+
     overflow: hidden;
 }
 
 #btnRed {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     flex-grow: 1;
     margin-right: 0;
-    background-color: red;
+    background-color: #EE1B24;
     line-height: 200px;
     text-align: center;
-    /*border: solid 1px black;*/
+    border: solid 10px black;
+    border-radius: 100% 0 0 0;
 }
 
 #btnYellow {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     flex-grow: 1;
-    background-color: yellow;
+    background-color: #FEF200;
     line-height: 200px;
     text-align: center;
-    /*border: solid 1px black;*/
+    border-radius: 0 0 0 100%;
+    border: solid 10px black;
 }
 
 #btnGreen {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     flex-grow: 1;
-    background-color: green;
+    background-color: #24ee1b;
     line-height: 200px;
     text-align: center;
-    /*border: solid 1px black;*/
+    border: solid 10px black;
+    border-radius: 0 0 100% 0;
 }
 
 #btnBlue {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     flex-grow: 1;
-    background-color: blue;
+    background-color: #00589F;
     line-height: 200px;
     text-align: center;
-    /*border: solid 1px black;*/
+    border-radius: 0 100% 0 0;
+    border: solid 10px black;
 }
 
 .flashClass {
@@ -74,12 +76,11 @@ h1 {
     -webkit-animation-duration: 4s;
     /* Safari 4.0 - 8.0 */
     animation-name: flash;
-    animation-duration: 4s;
+    animation-duration: 1.0s;
 }
 
 @keyframes flash {
-  0%   {background-color: red;}
-  25%  {background-color: yellow;}
-  50%  {background-color: blue;}
-  100% {background-color: green;}
+  0%   {background-color: 255, 255, 255, 0.2;}
+  10%  {background-color: white;}
+  100% {background-color: 255, 0, 0, 0;}
 }
