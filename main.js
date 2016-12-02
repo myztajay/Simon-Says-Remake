@@ -10,6 +10,7 @@ let tempVar;
 let arrayCounter = 0;
 let simonCounter = 0
 let timeoutId;
+var animate;
 
 //ARRAYS
 let userSeq = [];
@@ -28,27 +29,28 @@ function resetGame() {
     userSeq = [];
     simonSeq = [];
     arrayCounter = 0;
+    simonCounter = 0;
+    clearInterval(animate);
 }
 //SIMON FLASHING FUNCTION
 function flash() {
-    if (simonCounter < simonSeq.length) {
-        console.log("animate test");
-        x = simonSeq[simonCounter];
-        if (x == 1) {
-            highlight($red);
-        }
-        if (x == 2) {
-            highlight($blue);
-        }
-        if (x == 3) {
-            highlight($green);
-
-        }
-        if (x == 4) {
-            highlight($yellow);
-        }
-        simonCounter++;
-
+if (simonCounter < simonSeq.length) {
+    console.log("animate test");
+    x = simonSeq[simonCounter];
+    if (x == 1) {
+        highlight($red);
+    }
+    if (x == 2) {
+        highlight($blue);
+    }
+    if (x == 3) {
+        highlight($green);
+    }
+    if (x == 4) {
+        highlight($yellow);
+    }
+    simonCounter++;
+}
         function highlight(colorVar) {
             colorVar.addClass('flashClass');
             setTimeout(removeClass, 500)
@@ -57,8 +59,8 @@ function flash() {
                 colorVar.removeClass("flashClass");
             }
         }
+        debugger
 
-    }
 }
 //USER FLASHING FUNCTION
 function userFlash(colorVar) {
@@ -78,9 +80,10 @@ function storeUserSequence() {
     if (arrayCounter < (simonSeq.length - 1)) {
 
         if (this.id == "btnRed") {
+            userFlash($red)
             tempVar = 1;
             userSeq.push(tempVar);
-            userFlash($red)
+
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
             } else {
@@ -91,9 +94,10 @@ function storeUserSequence() {
             }
         }
         if (this.id == "btnBlue") {
+            userFlash($blue)
             tempVar = 2;
             userSeq.push(tempVar);
-            userFlash($blue)
+
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
             } else {
@@ -104,8 +108,8 @@ function storeUserSequence() {
             }
         }
         if (this.id == "btnGreen") {
-            tempVar = 3;
             userFlash($green)
+            tempVar = 3;
             userSeq.push(tempVar);
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
@@ -116,8 +120,8 @@ function storeUserSequence() {
                 resetGame();
             }
         } else if (this.id == "btnYellow") {
+            userFlash($yellow)
             tempVar = 4;
-            userFlash($blue)
             userSeq.push(tempVar);
             if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
                 arrayCounter++;
@@ -135,8 +139,7 @@ function storeUserSequence() {
     }
 }
 
-//end of animate
-//initiates game
+//INIATES SIMON
 function genSimonSeq() {
     // check to see if playerTurn is true or false
     for (let i = 0; i < 3; i++) {
@@ -144,7 +147,7 @@ function genSimonSeq() {
         simonSeq.push(randomSeq);
         console.log(simonSeq);
     }
+    animate = setInterval(flash, 1000)
+    debugger
 
-    animate;
 }
-var animate = setInterval(flash, 1500)
