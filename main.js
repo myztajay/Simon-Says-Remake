@@ -23,66 +23,13 @@ $yellow.on('click', storeUserSequence);
 $play.on('click', genSimonSeq);
 
 //FUNCTIONS
+//RESETS GAME
 function resetGame() {
     userSeq = [];
     simonSeq = [];
+    arrayCounter = 0;
 }
-function storeUserSequence() {
-    console.log(this.id + "button was pressed");
-    if (arrayCounter < (simonSeq.length - 1)) {
-
-        if (this.id == "btnRed") {
-            $red.html("red_User");
-            tempVar = 1;
-            userSeq.push(tempVar);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-            } else {
-                // end the game if answer is wrong
-                console.log("Loo-hoo-looha");
-                resetGame();
-            }
-        }
-        if (this.id == "btnBlue") {
-            $blue.html("blue_User");
-            tempVar = 2;
-            userSeq.push(tempVar);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-            } else {
-                // end the game if answer is wrong
-                console.log("Loo-hoo-looha");
-                resetGame();
-            }
-        }
-        if (this.id == "btnGreen") {
-            $green.html("green_User");
-            tempVar = 3;
-            userSeq.push(tempVar);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-            } else {
-                // end the game if answer is wrong
-                console.log("Loo-hoo-looha");
-                resetGame();
-            }
-        } else if (this.id == "btnYellow") {
-            $yellow.html("yellow_User");
-            tempVar = 4;
-            userSeq.push(tempVar);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-            } else {
-                // end the game if answer is wrong
-                console.log("Loo-hoo-looha");
-                resetGame();
-            }
-        }
-    } else {
-        console.log("YOU WIN BITCH!");
-        resetGame();
-    }
-}
+//SIMON FLASHING FUNCTION
 function flash() {
     if (simonCounter < simonSeq.length) {
         console.log("animate test");
@@ -113,6 +60,81 @@ function flash() {
 
     }
 }
+//USER FLASHING FUNCTION
+function userFlash(colorVar) {
+    highlightUser(colorVar);
+    function highlightUser(colorVar) {
+        colorVar.addClass('flashClass');
+        setTimeout(removeClass, 500);
+        function removeClass() {
+            colorVar.removeClass("flashClass");
+        }
+    }
+}
+
+//PUSHES USER VALUES TO ARRAY, USERFLASH
+function storeUserSequence() {
+    console.log(this.id + "button was pressed");
+    if (arrayCounter < (simonSeq.length - 1)) {
+
+        if (this.id == "btnRed") {
+            tempVar = 1;
+            userSeq.push(tempVar);
+            userFlash($red)
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                // end the game if answer is wrong
+                alert('lost')
+                console.log("Loo-hoo-looha");
+                resetGame();
+            }
+        }
+        if (this.id == "btnBlue") {
+            tempVar = 2;
+            userSeq.push(tempVar);
+            userFlash($blue)
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                // end the game if answer is wrong
+                alert('lost')
+                console.log("Loo-hoo-looha");
+                resetGame();
+            }
+        }
+        if (this.id == "btnGreen") {
+            tempVar = 3;
+            userFlash($green)
+            userSeq.push(tempVar);
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                // end the game if answer is wrong
+                alert('lost')
+                console.log("Loo-hoo-looha");
+                resetGame();
+            }
+        } else if (this.id == "btnYellow") {
+            tempVar = 4;
+            userFlash($blue)
+            userSeq.push(tempVar);
+            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+                arrayCounter++;
+            } else {
+                // end the game if answer is wrong
+                console.log("Loo-hoo-looha");
+                alert('lost')
+                resetGame();
+            }
+        }
+    } else {
+        alert('winner')
+        console.log("YOU WIN BITCH!");
+        resetGame();
+    }
+}
+
 //end of animate
 //initiates game
 function genSimonSeq() {
