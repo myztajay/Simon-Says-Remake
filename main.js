@@ -16,22 +16,17 @@ let userSeq = [];
 let simonSeq = [];
 
 //VARIABLES CLICK EVENTS
-$red.on('click',storeUserSequence);
-$blue.on('click',storeUserSequence);
+$red.on('click', storeUserSequence);
+$blue.on('click', storeUserSequence);
 $green.on('click', storeUserSequence);
 $yellow.on('click', storeUserSequence);
 $play.on('click', genSimonSeq);
 
 //FUNCTIONS
-// functio for button clicked using this to refer to button tht clicked
-//find its ID using jquery
-//  store array
-
-function resetGame(){
-  userSeq = [];
-  simonSeq = [];
+function resetGame() {
+    userSeq = [];
+    simonSeq = [];
 }
-
 function storeUserSequence() {
     console.log(this.id + "button was pressed");
     if (arrayCounter < (simonSeq.length - 1)) {
@@ -82,15 +77,12 @@ function storeUserSequence() {
                 console.log("Loo-hoo-looha");
                 resetGame();
             }
-          }
+        }
     } else {
         console.log("YOU WIN BITCH!");
         resetGame();
     }
 }
-
-var animate = setInterval(flash, 1500)
-
 function flash() {
     if (simonCounter < simonSeq.length) {
         console.log("animate test");
@@ -113,6 +105,7 @@ function flash() {
         function highlight(colorVar) {
             colorVar.addClass('flashClass');
             setTimeout(removeClass, 500)
+
             function removeClass() {
                 colorVar.removeClass("flashClass");
             }
@@ -120,33 +113,16 @@ function flash() {
 
     }
 }
-
-
-
- //end of animate
-
-
+//end of animate
 //initiates game
-function genSimonSeq(){
+function genSimonSeq() {
     // check to see if playerTurn is true or false
-        for (let i = 0; i < 3; i++) {
-            randomSeq = Math.floor((Math.random() * 4) + 1);
-            simonSeq.push(randomSeq);
-            console.log(simonSeq);
-        }
-        // for (let j in simonSeq) {
-        //     if (simonSeq[j] == 1) {
-        //       animate($red);
-        //     }
-        //     if (simonSeq[j] == 2) {
-        //       animate($blue);
-        //     }
-        //     if (simonSeq[j] == 3) {
-        //       animate($green);
-        //     }
-        //     if (simonSeq[j] == 4) {
-        //       animate($yellow);
-        //     }
-        // }
-        animate;
+    for (let i = 0; i < 3; i++) {
+        randomSeq = Math.floor((Math.random() * 4) + 1);
+        simonSeq.push(randomSeq);
+        console.log(simonSeq);
+    }
+
+    animate;
 }
+var animate = setInterval(flash, 1500)
