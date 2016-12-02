@@ -23,44 +23,50 @@ $green.on('click', storeUserSequence);
 $yellow.on('click', storeUserSequence);
 $play.on('click', genSimonSeq);
 
-//FUNCTIONS
+//////////////////////////////////FUNCTIONS////////////////////////////////////
+
 //RESETS GAME
-function resetGame() {
+function resetUserSeq() {
     userSeq = [];
-    simonSeq = [];
     arrayCounter = 0;
     simonCounter = 0;
+    // NEED TO FIND A BETTER WAY TO CLEAR INTERVAL right now it runs flash()
+    //over and over untill the round is done.
     clearInterval(animate);
+}
+//RESET game
+function resetSimon(){
+  simonSeq = [];
 }
 //SIMON FLASHING FUNCTION
 function flash() {
-if (simonCounter < simonSeq.length) {
-    console.log("animate test");
-    x = simonSeq[simonCounter];
-    if (x == 1) {
-        highlight($red);
-    }
-    if (x == 2) {
-        highlight($blue);
-    }
-    if (x == 3) {
-        highlight($green);
-    }
-    if (x == 4) {
-        highlight($yellow);
-    }
-    simonCounter++;
-}
-        function highlight(colorVar) {
-            colorVar.addClass('flashClass');
-            setTimeout(removeClass, 500)
-
-            function removeClass() {
-                colorVar.removeClass("flashClass");
-            }
+    if (simonCounter < simonSeq.length) {
+        console.log("animate test");
+        x = simonSeq[simonCounter];
+        if (x == 1) {
+            highlight($red);
         }
-        debugger
+        if (x == 2) {
+            highlight($blue);
+        }
+        if (x == 3) {
+            highlight($green);
+        }
+        if (x == 4) {
+            highlight($yellow);
+        }
+        simonCounter++;
+        console.log(simonCounter)
+    }
 
+    function highlight(colorVar) {
+        colorVar.addClass('flashClass');
+        setTimeout(removeClass, 500)
+
+        function removeClass() {
+            colorVar.removeClass("flashClass");
+        }
+    }
 }
 //USER FLASHING FUNCTION
 function userFlash(colorVar) {
@@ -73,7 +79,6 @@ function userFlash(colorVar) {
         }
     }
 }
-
 //PUSHES USER VALUES TO ARRAY, USERFLASH
 function storeUserSequence() {
     console.log(this.id + "button was pressed");
@@ -90,7 +95,8 @@ function storeUserSequence() {
                 // end the game if answer is wrong
                 alert('lost')
                 console.log("Loo-hoo-looha");
-                resetGame();
+                resetUserSeq();
+                resetSimon();
             }
         }
         if (this.id == "btnBlue") {
@@ -104,7 +110,8 @@ function storeUserSequence() {
                 // end the game if answer is wrong
                 alert('lost')
                 console.log("Loo-hoo-looha");
-                resetGame();
+                resetUserSeq();
+                resetSimon();
             }
         }
         if (this.id == "btnGreen") {
@@ -117,7 +124,8 @@ function storeUserSequence() {
                 // end the game if answer is wrong
                 alert('lost')
                 console.log("Loo-hoo-looha");
-                resetGame();
+                resetUserSeq();
+                resetSimon();
             }
         } else if (this.id == "btnYellow") {
             userFlash($yellow)
@@ -129,25 +137,27 @@ function storeUserSequence() {
                 // end the game if answer is wrong
                 console.log("Loo-hoo-looha");
                 alert('lost')
-                resetGame();
+                resetUserSeq();
+                resetSimon();
             }
         }
     } else {
         alert('winner')
         console.log("YOU WIN BITCH!");
-        resetGame();
+        resetUserSeq();
+        genSimonSeq();
     }
 }
-
 //INIATES SIMON
 function genSimonSeq() {
-    // check to see if playerTurn is true or false
-    for (let i = 0; i < 3; i++) {
-        randomSeq = Math.floor((Math.random() * 4) + 1);
-        simonSeq.push(randomSeq);
-        console.log(simonSeq);
-    }
-    animate = setInterval(flash, 1000)
-    debugger
+    randNum = Math.floor((Math.random() * 4) + 1);
+    simonSeq.push(randNum);
+    console.log(simonSeq);
+    // for (let i = 0; i < 3; i++) {
+    //     randomSeq = Math.floor((Math.random() * 4) + 1);
+    //     simonSeq.push(randomSeq);
+    //     console.log(simonSeq);
+    // }
 
+    animate = setInterval(flash, 1000);
 }
