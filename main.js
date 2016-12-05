@@ -23,10 +23,10 @@ $yellow.on('click', storeUserSeq);
 $play.on('click', genSimonSeq);
 $play.click(hide);
 
-var audio1 = new Audio("sounds/C.mp3" )
-var audio2 = new Audio("sounds/F.mp3" )
-var audio3 = new Audio("sounds/A.mp3" )
-var audio4 = new Audio("sounds/E.mp3" )
+let audio1 = new Audio("sounds/C.mp3" )
+let audio2 = new Audio("sounds/F.mp3" )
+let audio3 = new Audio("sounds/A.mp3" )
+let audio4 = new Audio("sounds/E.mp3" )
 
 
 //////////////////////////////////FUNCTIONS////////////////////////////////////
@@ -126,8 +126,6 @@ function genSimonSeq(){
     animate = setInterval(simonFlashSound, 1000);
     round++;
 }
-// GENERATES SOUND FOR SIMON
-
 //PUSHES USER VALUES TO ARRAY, USERFLASH
 function storeUserSeq(){
         if (this.id == "btnRed") {

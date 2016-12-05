@@ -24,7 +24,7 @@ button {
 }
 footer {
     height: 30px;
-    margin-top: 200px;
+    margin-top: 120px;
     background-color: black;
     color: white;
     text-align: center;
@@ -32,6 +32,16 @@ footer {
 
 footer a {
     color: #ffff7f
+}
+.fa {
+  color: #43ff00;
+  font-size: 16px;
+  font-size: 10em;
+  padding: 0 15px 0 15px;
+}
+.fa:hover {
+  color:white;
+
 }
 
 .container {
@@ -45,7 +55,7 @@ h1 {
     font-family: 'Bungee', arial;
     font-size: 90px;
     text-align: center;
-    color: #43ff00
+    color: #43ff00;
 }
 
 h3 {
