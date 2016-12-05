@@ -110,6 +110,27 @@ h3 {
     border: solid 10px #3c3c3c;
 }
 
+#btnBlue:hover{
+  border-style: solid;
+  border-color: #6b6b6b;
+  box-shadow: 1px 1px 1px 1px black;
+}
+#btnRed:hover{
+  border-style: solid;
+  border-color: #6b6b6b;
+  box-shadow: 1px 1px 1px 1px black;
+}
+#btnGreen:hover{
+  border-style: solid;
+  border-color: #6b6b6b;
+  box-shadow: 1px 1px 1px 1px black;
+}
+#btnYellow:hover{
+  border-style: solid;
+  border-color: #6b6b6b;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
 .flashClass {
     -webkit-animation-name: example;
     /* Safari 4.0 - 8.0 */
