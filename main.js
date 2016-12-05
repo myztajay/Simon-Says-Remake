@@ -22,7 +22,6 @@ $yellow.on('click', storeUserSeq);
 //PLAY BUTTONS
 $play.on('click', genSimonSeq);
 $play.click(hide);
-
 //////////////////////////////////FUNCTIONS////////////////////////////////////
 // COMPARES BOTH ARRRAY EVERYTIME A BUTTON IS PRESSED
 function compare(){
@@ -123,8 +122,6 @@ function storeUserSeq(){
             userSeq.push(1);
             scoring();
             compare();
-
-
         }
         if (this.id == "btnBlue") {
             userFlash($blue);
