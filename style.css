@@ -1,20 +1,39 @@
-
-
 body {
     background-color: black;
-    color: 	#6fcb9f;
+    color: yellow;
+}
+swag{
+  color:yellow;
+  text-align: center;
 
 }
-footer{
+p.simonBoard{
+  margin-top: 5px;
+}
+h4{
+  padding-bottom: 5px;
+}
+button {
   height: 30px;
-  margin-top: 200px;
+  width: 80px;
+  border-radius: 15%;
+  border: 1px solid #43ff00;
+  color: #43ff00;
   background-color: black;
-  color: white;
-  text-align: center;
+
 }
-footer a{
-  	color: #ffff7f
+footer {
+    height: 30px;
+    margin-top: 200px;
+    background-color: black;
+    color: white;
+    text-align: center;
 }
+
+footer a {
+    color: #ffff7f
+}
+
 .container {
     width: 800px;
     margin: 0 auto;
@@ -22,16 +41,16 @@ footer a{
     background-color: black;
 }
 
-h1{
-  font-family: 'Bungee', arial;
-  font-size: 90px;
-  text-align: center;
-  color: #62e100
+h1 {
+    font-family: 'Bungee', arial;
+    font-size: 90px;
+    text-align: center;
+    color: #43ff00
 }
+
 h3 {
     text-align: center;
     color: white;
-
     font-family: "Dosis"
 }
 
@@ -65,7 +84,7 @@ h3 {
     background-color: #FEF200;
     line-height: 200px;
     text-align: center;
-    border-radius: 0 0 0 100% ;
+    border-radius: 0 0 0 100%;
     border: solid 10px #3c3c3c;
 }
 
@@ -101,17 +120,24 @@ h3 {
 }
 
 @keyframes flash {
-  0%   {background-color: 255, 255, 255, 0.2;}
-  10%  {background-color: white;}
-  100% {background-color: 255, 0, 0, 0;}
+    0% {
+        background-color: 255, 255, 255, 0.2;
+    }
+    10% {
+        background-color: white;
+    }
+    100% {
+        background-color: 255, 0, 0, 0;
+    }
 }
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 1s, opacity 1s linear;
-}
-.floating{
 
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+
+.floating {
     -webkit-animation-name: Floatingx;
     -webkit-animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;
@@ -120,17 +146,28 @@ h3 {
     -moz-animation-duration: 3s;
     -moz-animation-iteration-count: infinite;
     -moz-animation-timing-function: ease-in-out;
-
-
-}
-@-webkit-keyframes Floatingx{
-    from {-webkit-transform:translate(0, 0px);}
-    65% {-webkit-transform:translate(0, 5px);}
-    to {-webkit-transform: translate(0, -0px);    }
 }
 
-@-moz-keyframes Floating{
-    from {-moz-transform:translate(0, 0px);}
-    65% {-moz-transform:translate(0, 5px);}
-    to {-moz-transform: translate(0, -0px);}
+@-webkit-keyframes Floatingx {
+    from {
+        -webkit-transform: translate(0, 0px);
+    }
+    65% {
+        -webkit-transform: translate(0, 5px);
+    }
+    to {
+        -webkit-transform: translate(0, -0px);
+    }
+}
+
+@-moz-keyframes Floating {
+    from {
+        -moz-transform: translate(0, 0px);
+    }
+    65% {
+        -moz-transform: translate(0, 5px);
+    }
+    to {
+        -moz-transform: translate(0, -0px);
+    }
 }

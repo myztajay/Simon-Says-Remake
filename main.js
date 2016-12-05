@@ -7,7 +7,8 @@ let $play = $(btnPlay);
 //REGULAR VARIABLES
 let userCounter = 0;
 let simonCounter = 0;
-let round =1;
+let round = 1;
+let score = 0 ;
 let timeoutId;
 let animate;
 //ARRAYS
@@ -18,6 +19,7 @@ $red.on('click', storeUserSeq);
 $blue.on('click', storeUserSeq);
 $green.on('click', storeUserSeq);
 $yellow.on('click', storeUserSeq);
+//PLAY BUTTONS
 $play.on('click', genSimonSeq);
 $play.click(hide);
 
@@ -33,12 +35,20 @@ function compare(){
       lostGame();
   }
 }
+//SCORING
+function scoring(){
+  score = score + 100;
+  $(scoreBoard).html("Score: " + score);
+}
 //LOST GAME
 function lostGame(){
   alert("You Lost, Try Checkers");
   resetUserSeq();
   resetSimon();
   hide();
+  score = 0;
+  $(scoreBoard).html("Score: " + score);
+
 }
 //WON GAME
 function wonGame(){
@@ -58,7 +68,7 @@ function resetUserSeq(){
 function resetSimon(){
   simonSeq = [];
   round = 1;
-  $('span').html('<H2>LOST</H2>');
+
 }
 //SIMON FLASHING FUNCTION
 function flash(){
@@ -111,22 +121,31 @@ function storeUserSeq(){
         if (this.id == "btnRed") {
             userFlash($red);
             userSeq.push(1);
+            scoring();
             compare();
+
+
         }
         if (this.id == "btnBlue") {
             userFlash($blue);
             userSeq.push(2);
+            scoring();
             compare();
+
         }
         if (this.id == "btnGreen") {
             userFlash($green);
             userSeq.push(3);
+            scoring();
             compare();
+
         }
         if (this.id == "btnYellow") {
             userFlash($yellow);
             userSeq.push(4);
+            scoring();
             compare();
+
         }
 }
 //HIDES PLAY BUTTON
