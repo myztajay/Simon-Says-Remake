@@ -19,7 +19,10 @@ button {
   border: 1px solid #43ff00;
   color: #43ff00;
   background-color: black;
-
+  text-align:center;
+}
+span{
+  text-align: center;
 }
 footer {
     height: 30px;
@@ -34,8 +37,6 @@ footer a {
 }
 .fa {
   color: #43ff00;
-  font-size: 16px;
-  font-size: 10em;
   padding: 0 15px 0 15px;
 }
 .fa:hover {
@@ -59,7 +60,11 @@ h1 {
 h3 {
     text-align: center;
     color: white;
-    font-family: "Dosis"
+    font-family: "Dosis";
+    padding-bottom: 15px;
+}
+#scoreBoard{
+  text-align: center;
 }
 
 #btnPlay {}
@@ -150,13 +155,13 @@ h3 {
 
 @keyframes flash {
     0% {
-        background-color: 255, 255, 255, 0.2;
+        background-color: 255, 255, 255;
     }
     10% {
         background-color: white;
     }
     100% {
-        background-color: 255, 0, 0, 0;
+        background-color: 255, 0, 0;
     }
 }
 
