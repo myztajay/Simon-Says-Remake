@@ -5,7 +5,7 @@ let $green = $(btnGreen);
 let $yellow = $(btnYellow);
 let $play = $(btnPlay);
 //REGULAR VARIABLES
-let arrayCounter = 0;
+let userCounter = 0;
 let simonCounter = 0;
 let round =1;
 let timeoutId;
@@ -23,7 +23,7 @@ $play.on('click', genSimonSeq);
 //////////////////////////////////FUNCTIONS////////////////////////////////////
 // COMPARES BOTH ARRRAY EVERYTIME A BUTTON IS PRESSED
 function compare(){
-  if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+  if (userSeq[userCounter] === simonSeq[userCounter]) {
       arrayCounter++;
       if (userSeq.length === simonSeq.length) {
           wonGame();
@@ -33,7 +33,7 @@ function compare(){
   }
 }
 //LOST GAME
-function lostGame () {
+function lostGame(){
   alert("You Lost, try Checkers");
   resetUserSeq();
   resetSimon();
@@ -44,7 +44,7 @@ function wonGame(){
   genSimonSeq();
 }
 //RESETS GAME
-function resetUserSeq() {
+function resetUserSeq(){
     userSeq = [];
     arrayCounter = 0;
     simonCounter = 0;
@@ -59,7 +59,7 @@ function resetSimon(){
   $('span').html('<H2>LOST</H2>');
 }
 //SIMON FLASHING FUNCTION
-function flash() {
+function flash(){
     if (simonCounter < simonSeq.length) {
         x = simonSeq[simonCounter];
         if (x == 1) {
@@ -75,12 +75,10 @@ function flash() {
             highlight($yellow);
         }
         simonCounter++;
-        console.log(simonCounter+" simonmini counter")
     }
-
     function highlight(colorVar) {
         colorVar.addClass('flashClass');
-        setTimeout(removeClass, 500)
+        setTimeout(removeClass, 500);
 
         function removeClass() {
             colorVar.removeClass("flashClass");
@@ -88,7 +86,7 @@ function flash() {
     }
 }
 //USER FLASHING FUNCTION
-function userFlash(colorVar) {
+function userFlash(colorVar){
     highlightUser(colorVar);
     function highlightUser(colorVar) {
         colorVar.addClass('flashClass');
@@ -99,16 +97,15 @@ function userFlash(colorVar) {
     }
 }
 //INIATES SIMON
-function genSimonSeq() {
-    $('span').html('<h2> round '+ round +'</h2>')
+function genSimonSeq(){
+    $('span').html('<h2> round '+ round +'</h2>');
     randNum = Math.floor((Math.random() * 4) + 1);
     simonSeq.push(randNum);
-    console.log(simonSeq + " = this is simonseq");
     animate = setInterval(flash, 1000);
     round++;
 }
 //PUSHES USER VALUES TO ARRAY, USERFLASH
-function storeUserSeq() {
+function storeUserSeq(){
         if (this.id == "btnRed") {
             userFlash($red);
             userSeq.push(1);
