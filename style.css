@@ -1,16 +1,38 @@
-body {
-    background-color: #dcdee2;
-}
 
+
+body {
+    background-color: black;
+    color: 	#6fcb9f;
+
+}
+footer{
+  height: 30px;
+  margin-top: 200px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+footer a{
+  	color: #ffff7f
+}
 .container {
     width: 800px;
     margin: 0 auto;
+    border: 10px solid black;
+    background-color: black;
 }
 
-h1 {
+h1{
+  font-family: 'Bungee', arial;
+  font-size: 90px;
+  text-align: center;
+  color: #62e100
+}
+h3 {
     text-align: center;
     color: white;
-    font-size: 110px;
+
+    font-family: "Dosis"
 }
 
 #btnPlay {}
@@ -21,7 +43,6 @@ h1 {
     flex-wrap: wrap;
     display: flex;
     margin-top: 50px;
-
     overflow: hidden;
 }
 
@@ -33,7 +54,7 @@ h1 {
     background-color: #EE1B24;
     line-height: 200px;
     text-align: center;
-    border: solid 10px black;
+    border: solid 10px #3c3c3c;
     border-radius: 100% 0 0 0;
 }
 
@@ -44,8 +65,8 @@ h1 {
     background-color: #FEF200;
     line-height: 200px;
     text-align: center;
-    border-radius: 0 0 0 100%;
-    border: solid 10px black;
+    border-radius: 0 0 0 100% ;
+    border: solid 10px #3c3c3c;
 }
 
 #btnGreen {
@@ -55,7 +76,7 @@ h1 {
     background-color: #24ee1b;
     line-height: 200px;
     text-align: center;
-    border: solid 10px black;
+    border: solid 10px #3c3c3c;
     border-radius: 0 0 100% 0;
 }
 
@@ -67,7 +88,7 @@ h1 {
     line-height: 200px;
     text-align: center;
     border-radius: 0 100% 0 0;
-    border: solid 10px black;
+    border: solid 10px #3c3c3c;
 }
 
 .flashClass {
@@ -83,4 +104,33 @@ h1 {
   0%   {background-color: 255, 255, 255, 0.2;}
   10%  {background-color: white;}
   100% {background-color: 255, 0, 0, 0;}
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+.floating{
+
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 3s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+
+
+}
+@-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 5px);}
+    to {-webkit-transform: translate(0, -0px);    }
+}
+
+@-moz-keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 5px);}
+    to {-moz-transform: translate(0, -0px);}
 }

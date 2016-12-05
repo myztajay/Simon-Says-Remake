@@ -9,7 +9,7 @@ let userCounter = 0;
 let simonCounter = 0;
 let round =1;
 let timeoutId;
-var animate;
+let animate;
 //ARRAYS
 let userSeq = [];
 let simonSeq = [];
@@ -19,12 +19,13 @@ $blue.on('click', storeUserSeq);
 $green.on('click', storeUserSeq);
 $yellow.on('click', storeUserSeq);
 $play.on('click', genSimonSeq);
+$play.click(hide);
 
 //////////////////////////////////FUNCTIONS////////////////////////////////////
 // COMPARES BOTH ARRRAY EVERYTIME A BUTTON IS PRESSED
 function compare(){
   if (userSeq[userCounter] === simonSeq[userCounter]) {
-      arrayCounter++;
+      userCounter++;
       if (userSeq.length === simonSeq.length) {
           wonGame();
       }
@@ -34,9 +35,10 @@ function compare(){
 }
 //LOST GAME
 function lostGame(){
-  alert("You Lost, try Checkers");
+  alert("You Lost, Try Checkers");
   resetUserSeq();
   resetSimon();
+  hide();
 }
 //WON GAME
 function wonGame(){
@@ -46,7 +48,7 @@ function wonGame(){
 //RESETS GAME
 function resetUserSeq(){
     userSeq = [];
-    arrayCounter = 0;
+    userCounter = 0;
     simonCounter = 0;
     // NEED TO FIND A BETTER WAY TO CLEAR INTERVAL right now it runs flash()
     //over and over untill the round is done.
@@ -98,7 +100,7 @@ function userFlash(colorVar){
 }
 //INIATES SIMON
 function genSimonSeq(){
-    $('span').html('<h2> round '+ round +'</h2>');
+    $('span').html('<h2> Round '+ round +'</h2>');
     randNum = Math.floor((Math.random() * 4) + 1);
     simonSeq.push(randNum);
     animate = setInterval(flash, 1000);
@@ -126,4 +128,8 @@ function storeUserSeq(){
             userSeq.push(4);
             compare();
         }
+}
+//HIDES PLAY BUTTON
+function hide(){
+  $play.toggleClass('hidden')
 }
