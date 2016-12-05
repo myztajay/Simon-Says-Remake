@@ -5,7 +5,6 @@ body {
 swag{
   color:yellow;
   text-align: center;
-
 }
 p.simonBoard{
   margin-top: 5px;
@@ -24,7 +23,7 @@ button {
 }
 footer {
     height: 30px;
-    margin-top: 120px;
+    margin-top: 10px;
     background-color: black;
     color: white;
     text-align: center;
@@ -41,7 +40,6 @@ footer a {
 }
 .fa:hover {
   color:white;
-
 }
 
 .container {
@@ -53,7 +51,7 @@ footer a {
 
 h1 {
     font-family: 'Bungee', arial;
-    font-size: 90px;
+    font-size: 40px;
     text-align: center;
     color: #43ff00;
 }
@@ -68,18 +66,18 @@ h3 {
 
 .simonBoard {
     margin: 0 auto;
-    width: 400px;
-    flex-wrap: wrap;
+    width: 300px;
     display: flex;
+    flex-wrap: wrap;
+
     margin-top: 50px;
     overflow: hidden;
 }
 
 #btnRed {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     flex-grow: 1;
-    margin-right: 0;
     background-color: #EE1B24;
     line-height: 200px;
     text-align: center;
@@ -88,8 +86,8 @@ h3 {
 }
 
 #btnYellow {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     flex-grow: 1;
     background-color: #FEF200;
     line-height: 200px;
@@ -99,19 +97,19 @@ h3 {
 }
 
 #btnGreen {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     flex-grow: 1;
     background-color: #24ee1b;
     line-height: 200px;
     text-align: center;
-    border: solid 10px #3c3c3c;
     border-radius: 0 0 100% 0;
+    border: solid 10px #3c3c3c;
 }
 
 #btnBlue {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     flex-grow: 1;
     background-color: #00589F;
     line-height: 200px;
