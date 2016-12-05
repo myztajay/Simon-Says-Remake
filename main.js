@@ -21,25 +21,24 @@ $yellow.on('click', storeUserSeq);
 $play.on('click', genSimonSeq);
 
 //////////////////////////////////FUNCTIONS////////////////////////////////////
-function whatColor(id) {
-    switch (id) {
-        case "btnRed":
-            return 1;
-        case "btnBlue":
-            return 2;
-        case "btnGreen":
-            return 3;
-        case "btnYellow":
-            return 4;
-    }
+// COMPARES BOTH ARRRAY EVERYTIME A BUTTON IS PRESSED
+function compare(){
+  if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
+      arrayCounter++;
+      if (userSeq.length === simonSeq.length) {
+          wonGame();
+      }
+  } else {
+      lostGame();
   }
-//ENDS GAME
+}
+//LOST GAME
 function lostGame () {
   alert("You Lost, try Checkers");
   resetUserSeq();
   resetSimon();
 }
-//LOST GAME
+//WON GAME
 function wonGame(){
   resetUserSeq();
   genSimonSeq();
@@ -105,69 +104,29 @@ function genSimonSeq() {
     randNum = Math.floor((Math.random() * 4) + 1);
     simonSeq.push(randNum);
     console.log(simonSeq + " = this is simonseq");
-    // for (let i = 0; i < 3; i++) {
-    //     randomSeq = Math.floor((Math.random() * 4) + 1);
-    //     simonSeq.push(randomSeq);
-    //     console.log(simonSeq);
-    // }
     animate = setInterval(flash, 1000);
     round++;
 }
 //PUSHES USER VALUES TO ARRAY, USERFLASH
 function storeUserSeq() {
-    console.log(this.id + "button was pressed"); // logs button
         if (this.id == "btnRed") {
             userFlash($red);
             userSeq.push(1);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-                if (userSeq.length === simonSeq.length) {
-                  wonGame();
-                }
-            } else {
-                // end the game if answer is wrong
-                  lostGame();
-            }
+            compare();
         }
         if (this.id == "btnBlue") {
             userFlash($blue);
             userSeq.push(2);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-                if (userSeq.length === simonSeq.length) {
-                    wonGame();
-                }
-            } else {
-                // end the game if answer is wrong
-                lostGame();
-            }
+            compare();
         }
         if (this.id == "btnGreen") {
             userFlash($green);
             userSeq.push(3);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-                if (userSeq.length === simonSeq.length) {
-                    wonGame();
-                }
-            } else {
-                // end the game if answer is wrong
-                lostGame();
-            }
+            compare();
         }
         if (this.id == "btnYellow") {
             userFlash($yellow);
             userSeq.push(4);
-            if (userSeq[arrayCounter] === simonSeq[arrayCounter]) {
-                arrayCounter++;
-                if (userSeq.length === simonSeq.length) {
-                    wonGame();
-                }
-            } else {
-                // end the game if answer is wrong
-                lostGame();
-            }
+            compare();
         }
-
-
 }
