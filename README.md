@@ -1,5 +1,5 @@
 # Simon Game Repo
- 
+Live Demo: https://myztajay.github.io/Simon-Says-Remake/
 ![alt text](https://static1.squarespace.com/static/51559841e4b06ce8229aac9d/5501cba2e4b02387e1f2bb60/5372c9d9e4b05dd13821a5bf/1466480997282/simon_game.jpg?format=500w "Logo Title Text 1")
 
 
